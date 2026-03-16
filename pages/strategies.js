@@ -45,7 +45,7 @@ export default function StrategiesPage() {
 
   const investmentStrategies = [
     { 
-      title: "Aviation Leasing & Lending", 
+      title: "Aviation Leasing & Lendings", 
       description: "Providing on and off balance sheet finance to airlines and other aviation asset owners, including aircraft leasing and secured lending.", 
       icon: "bi-airplane-engines" 
     },
