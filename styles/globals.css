@@ -376,6 +376,19 @@ footer {
   pointer-events: none;
 }
 
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-link {
+    color: var(--primary-color) !important;
+  }
+  .navbar-nav {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem !important;
+    margin-top: 1rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 3rem;

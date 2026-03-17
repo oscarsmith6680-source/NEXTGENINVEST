@@ -41,15 +41,18 @@ const Navbar = () => {
         }
 
         @media (max-width: 991.98px) {
-          .navbar-nav {
-            background-color: white;
-            padding: 2rem;
-            margin-top: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-          }
           .nav-link {
-            color: var(--primary-color) !important;
-            margin: 0.5rem 0;
+            padding: 0.8rem 0 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 0 !important;
+          }
+          .nav-item:last-child .nav-link {
+            border-bottom: none;
+          }
+          .btn-premium {
+            margin-top: 1rem;
+            width: 100%;
+            text-align: center;
           }
         }
       `}</style>
