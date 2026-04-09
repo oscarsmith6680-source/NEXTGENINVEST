@@ -46,16 +46,38 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-      setTimeout(() => {
+      setSubmitStatus(null);
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          setSubmitStatus('success');
+          setFormData({ fullName: '', email: '', phone: '', message: '' });
+        } else {
+          setSubmitStatus('error');
+          alert(data.error || 'Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        setSubmitStatus('error');
+        alert('Failed to send message. Please check your connection.');
+      } finally {
         setIsSubmitting(false);
-        setSubmitStatus('success');
-        setFormData({ fullName: '', email: '', phone: '', message: '' });
         setTimeout(() => setSubmitStatus(null), 5000);
-      }, 1500);
+      }
     }
   };
 
